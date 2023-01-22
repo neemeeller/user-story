@@ -1,30 +1,24 @@
 import { User } from '@types';
 
-export const Table = ({ users }: { users: User[] }) => (
+export const Table = ({ data, columns }: { data: User[]; columns: { id: keyof User; displayName: string }[] }) => (
   <table className="min-w-full text-left">
     <thead>
       <tr className="border-b">
-        <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-          Name
-        </th>
-        <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-          Username
-        </th>
-        <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-          Email
-        </th>
-        <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-          Website
-        </th>
+        {columns.map(({ displayName }) => (
+          <th key={displayName} scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+            {displayName}
+          </th>
+        ))}
       </tr>
     </thead>
     <tbody>
-      {users.map(user => (
+      {data.map(user => (
         <tr key={user.id} className="border-b bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{user.name}</td>
-          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{user.username}</td>
-          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{user.email}</td>
-          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{user.website}</td>
+          {columns.map(({ id }) => (
+            <td key={`${id}-${Math.random()}`} className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              {user[id].toString()}
+            </td>
+          ))}
         </tr>
       ))}
     </tbody>
