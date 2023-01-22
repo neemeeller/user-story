@@ -20,5 +20,12 @@ export const Users = () => {
     return <img src={logo} className="App-logo" alt="logo" />;
   }
 
-  return <Table users={users} />;
+  return (
+    <div className="flex flex-col">
+      <div className="overflow-x-auto">
+        <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8"></div>
+        <Table users={users} />
+      </div>
+    </div>
+  );
 };
