@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, Slice } from '@reduxjs/toolkit';
-import { User } from '../@types';
+import { User } from '@types';
 import { fetchUsersData } from './userAPI';
 
 interface UserState {

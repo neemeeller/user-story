@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import logo from '../../logo.svg';
+import logo from 'logo.svg';
 import { useSelector, useDispatch } from 'react-redux';
-import { AppDispatch } from '../../store';
-import { fetchUsers, selectStatus, selectUsers } from '../../store/userSlice';
+import { AppDispatch } from 'store';
+import { fetchUsers, selectStatus, selectUsers } from 'store/userSlice';
 import { Table } from './components/Table';
 
 export const Users = () => {
