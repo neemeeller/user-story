@@ -1,7 +1,7 @@
 import { User } from '@types';
 
 export const Table = ({ data, columns }: { data: User[]; columns: { id: keyof User; displayName: string }[] }) => (
-  <table className="min-w-full text-left">
+  <table className="min-w-full text-left w-800">
     <thead>
       <tr className="border-b">
         {columns.map(({ displayName }) => (

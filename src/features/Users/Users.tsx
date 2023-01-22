@@ -1,4 +1,3 @@
-import logo from 'icons/logo.svg';
 import { useCallback, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppDispatch } from 'store';
@@ -8,6 +7,7 @@ import { Table } from './components/Table';
 import { SearchBox } from './components/Search';
 import { paramsInclude } from './helpers';
 import { FILTER_COLUMNS, TABLE_COLUMNS } from './consts';
+import { LoadingIcon } from './components/Loading';
 
 export const Users = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -35,7 +35,7 @@ export const Users = () => {
   fetchData();
 
   if (status === 'loading') {
-    return <img src={logo} className="" alt="loading-logo" />;
+    return <LoadingIcon />;
   }
 
   return (

@@ -1,23 +1,28 @@
-# Getting Started with Create React App
+# User data filtering story
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
+As an anonymous user I want to see a set of users shows in a table. In addition I want to be
+able to have an input field which filters the list of users for matching criteria e.g. enter the
+name of a user “Franz” or “Fra” into the input field and the list updates to reflect only the
+matching users with name “Franz”
 
-## Available Scripts
+Data used for the repo is fetched from [example API]https://jsonplaceholder.typicode.com/users
 
-In the project directory, you can run:
+## Project setup
+
+### Install dependencies
+
+Install dependencies with `npm install`
+
+### Start development environment
 
 ### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Run unit tests with JEST.
 
 ### `npm run build`
 
@@ -27,20 +32,19 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Screenshots
 
-### `npm run eject`
+<p align="center">
+	<img width="90%" height="auto" src="images/preview.png">
+</p>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## How to modify table settings
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To control which table columns are visible and which data columns are used for filtering user data go to file `src\features\Users\consts.ts`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+It has two constants that modify table setup:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+FILTER_COLUMNS - controls which columns are used for data filtering when typing inside search box
 
-## Learn More
+TABLE_COLUMNS - controls which columns are shown to the user also allows to modify the column header name
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
