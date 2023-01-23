@@ -1,16 +1,18 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppDispatch } from 'store';
-import { fetchUsers, selectStatus, selectUsers } from 'store/userSlice';
+import { fetchUsers, selectError, selectStatus, selectUsers } from 'store/userSlice';
 import { User } from '@types';
 import { Table } from './components/Table';
 import { SearchBox } from './components/Search';
 import { paramsInclude } from './helpers';
 import { FILTER_COLUMNS, TABLE_COLUMNS } from './consts';
 import { LoadingIcon } from './components/Loading';
+import { Alert } from './components/Alert';
 
 export const Users = () => {
   const dispatch = useDispatch<AppDispatch>();
+  const error = useSelector(selectError);
   const status = useSelector(selectStatus);
   const initialList = useSelector(selectUsers);
   const [users, setUsers] = useState<User[]>(initialList);
@@ -34,6 +36,10 @@ export const Users = () => {
 
   fetchData();
 
+  if (status === 'error') {
+    return <Alert message={`Error while fetching data. \n Please try again: ${error}`} />;
+  }
+
   if (status === 'loading') {
     return <LoadingIcon />;
   }
@@ -48,6 +54,9 @@ export const Users = () => {
             </div>
           </div>
           <Table data={users} columns={TABLE_COLUMNS} />
+          {users?.length === 0 && (
+            <Alert message={'Nothing found. Please try other search keyword'} />
+          )}
         </div>
       </div>
     </div>

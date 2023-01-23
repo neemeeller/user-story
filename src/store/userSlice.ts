@@ -37,7 +37,8 @@ export const slice: Slice<UserState> = createSlice({
 
 export const fetchUsers = createAsyncThunk('user/fetchUsers', async () => await fetchUsersData());
 
-export const selectUsers = (state: { user: UserState }) => state.user.users;
+export const selectError = (state: { user: UserState }) => state.user.error;
 export const selectStatus = (state: { user: UserState }) => state.user.status;
+export const selectUsers = (state: { user: UserState }) => state.user.users;
 
 export default slice.reducer;

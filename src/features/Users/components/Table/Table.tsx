@@ -3,9 +3,9 @@ import { TableColumn, User } from '@types';
 export const Table = ({ data, columns }: { data: User[]; columns: TableColumn[] }) => (
   <table className="min-w-full text-left w-800">
     <thead>
-      <tr className="border-b">
+      <tr className="border-b bg-gray-800 boder-gray-900">
         {columns.map(({ displayName }) => (
-          <th key={displayName} scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+          <th key={displayName} scope="col" className="text-sm text-white font-medium px-6 py-4 whitespace-nowrap">
             {displayName}
           </th>
         ))}
