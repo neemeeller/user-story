@@ -22,7 +22,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `npm test`
 
-Run unit tests with JEST.
+Run unit tests with React Testing Library.
+
+There are two tests added as an example `helpters.test.ts` and `Table.test.tsx`
 
 ### `npm run build`
 

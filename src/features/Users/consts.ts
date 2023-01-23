@@ -1,7 +1,7 @@
-import { User } from '@types';
+import { TableColumn, User } from '@types';
 
 export const FILTER_COLUMNS: (keyof User)[] = ['name', 'username', 'email', 'website'];
-export const TABLE_COLUMNS: { id: keyof User; displayName: string }[] = [
+export const TABLE_COLUMNS: TableColumn[] = [
   {
     id: 'name',
     displayName: 'Name',

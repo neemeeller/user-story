@@ -1,6 +1,6 @@
-import { User } from '@types';
+import { TableColumn, User } from '@types';
 
-export const Table = ({ data, columns }: { data: User[]; columns: { id: keyof User; displayName: string }[] }) => (
+export const Table = ({ data, columns }: { data: User[]; columns: TableColumn[] }) => (
   <table className="min-w-full text-left w-800">
     <thead>
       <tr className="border-b">

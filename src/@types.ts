@@ -21,3 +21,8 @@ export interface User {
     bs: string;
   };
 }
+
+export interface TableColumn {
+  id: keyof User;
+  displayName: string;
+}
